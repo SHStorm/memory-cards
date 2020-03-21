@@ -1,0 +1,362 @@
+/* Custom reset */
+html {
+  height: 100%;
+  box-sizing: border-box;
+
+  font-size: 62.5%;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100%;
+
+  font-size: 1.6rem;
+}
+
+h1, h2, h3, h4, h5, h6, small, i, em, b, strong, input, button, kbd, textarea {
+  color: inherit;
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input, button {
+  font: inherit;
+}
+
+button {
+  border: none;
+
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+/* Main styles */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Lato', sans-serif;
+
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 50rem;
+}
+
+.header {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2em;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.add-button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+
+  padding: 0.42em 0.83em;
+
+  font-size: 0.75em;
+  text-transform: capitalize;
+
+  border: 1px solid #aaaaaa;
+  border-radius: 0.3rem;
+
+  background-color: #ffffff;
+}
+
+.cards-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.cards {
+  position: relative;
+
+  width: 50rem;
+  height: 30rem;
+}
+
+.card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+
+  width: 100%;
+  height: 100%;
+  padding: 1em 2em;
+
+  border-radius: 0.4rem;
+
+  background-color: #ffffff;
+
+  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.3);
+
+  opacity: 0;
+  cursor: pointer;
+
+  transform-style: preserve-3d;
+  transform: rotateX(0deg);
+
+  transition: transform 300ms;
+}
+
+.card.slide-in-right {
+  animation: 300ms ease slide-in-right;
+}
+
+.card.slide-out-right {
+  animation: 300ms ease slide-out-right;
+}
+
+.card.slide-in-left {
+  animation: 300ms ease slide-in-left;
+}
+
+.card.slide-out-left {
+  animation: 300ms ease slide-out-left;
+}
+
+.card.is-active {
+  z-index: 10;
+  opacity: 1;
+}
+
+.card.is-flipped {
+  transform: rotateX(180deg);
+}
+
+.card-side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  font-size: 1.5em;
+  font-weight: 300;
+  text-align: center;
+
+  backface-visibility: hidden;
+}
+
+.card-side::before {
+  content: '\f2f1  Click to flip';
+
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  color: #dddddd;
+  font-family: 'Font Awesome 5 Free', 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.67em;
+}
+
+.card-side:first-child {
+  transform: rotateX(0deg);
+}
+
+.card-side:last-child {
+  transform: rotateX(180deg);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.nav-button {
+  padding: 0.3125em;
+
+  background-color: transparent;
+}
+
+.slider-progress {
+  margin: 0 2.5rem;
+
+  font-weight: 300;
+}
+
+.clear-button {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+
+  padding: 0.714em 1.07em;
+
+  font-size: 0.875em;
+  text-transform: capitalize;
+
+  border: 1px solid #aaaaaa;
+  border-radius: 0.3rem;
+
+  background-color: #ffffff;
+}
+
+.dialog {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f0f0f0;
+}
+
+.close-button {
+  margin-left: 1rem;
+  padding: 1em;
+
+  font-size: 0.75em;
+}
+
+.new-card-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  font-weight: 300;
+}
+
+.field:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.field-label {
+  margin-bottom: 1rem;
+}
+
+.field-input {
+  padding: 0.75em;
+
+  border: 1px solid #aaaaaa;
+  border-radius: 0.3rem;
+
+  resize: vertical;
+}
+
+.submit-button {
+  align-self: center;
+
+  padding: 0.714em 1.07em;
+
+  font-size: 0.875em;
+  text-transform: capitalize;
+
+  border: 1px solid #aaaaaa;
+  border-radius: 0.3rem;
+
+  background-color: #ffffff;
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: scale(0.5) translateX(-50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(0.5) translateX(50%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: scale(0.5) translateX(50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out-left {
+  from {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(0.5) translateX(-50%);
+    opacity: 0;
+  }
+}

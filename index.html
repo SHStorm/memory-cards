@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Memory Cards</title>
+
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+  <script src="/scripts/index.js" defer></script>
+  <script src="https://kit.fontawesome.com/b03a6f87f6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Memory cards</h1>
+      <button id="add-card-button" class="add-button"><span class="fas fa-plus"></span> Add new card</button>
+    </header>
+
+    <main>
+      <section class="cards-slider">
+        <ul id="card-slides" class="cards"></ul>
+
+        <nav class="nav">
+          <button id="previous-card-button" class="nav-button"><span class="fas fa-arrow-left"></span></button>
+          <p id="card-slides-progress" class="slider-progress">0/0</p>
+          <button id="next-card-button" class="nav-button"><span class="fas fa-arrow-right"></span></button>
+        </nav>
+      </section>
+    </main>
+
+    <footer>
+      <button id="clear-cards-button" class="clear-button"><span class="fas fa-trash"></span> Clear cards</button>
+    </footer>
+  </div>
+
+  <section id="new-card-dialog" class="dialog" hidden>
+    <div class="container">
+      <div class="header">
+        <h1 class="title">Add new card</h1>
+        <button id="close-new-card-panel-button" class="close-button"><span class="fas fa-times"></span></button>
+      </div>
+
+      <form id="new-card-form" class="new-card-form">
+        <label class="field">
+          <span class="field-label">Question</span>
+          <textarea name="question" class="field-input" placeholder="Enter question..." required></textarea>
+        </label>
+
+        <label class="field">
+          <span class="field-label">Answer</span>
+          <textarea name="answer" class="field-input" placeholder="Enter answer..." required></textarea>
+        </label>
+
+        <button class="submit-button"><span class="fas fa-plus"></span> Add card</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>
